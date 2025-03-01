@@ -48,6 +48,23 @@ The backend already simulates temperature, pressure and flow rate with random fl
 
 The server runs on http://localhost:3001 and the client on http://localhost:5173.
 
+## Git Workflow
+
+We use [conventional commits](https://www.conventionalcommits.org/) to maintain a clean and meaningful git history.
+
+Use `pnpm commit` instead of `git commit` to get a helpful interactive prompt.
+
+Your commit messages must follow the pattern:
+- **feat**: A new feature
+- **fix**: A bug fix
+- **docs**: Documentation changes
+- **style**: Code style changes (formatting, etc)
+- **refactor**: Code changes that neither fix bugs nor add features
+- **test**: Adding or improving tests
+- **chore**: Changes to the build process or tools
+
+The pre-commit hooks will lint your code and run relevant tests before letting you commit. If things fail, fix them before committing.
+
 ## Technical Requirements
 
 - Use Svelte 5 runes properly - don't stick with the old Svelte 4 patterns
