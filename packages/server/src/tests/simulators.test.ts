@@ -1,8 +1,12 @@
 import { describe, it, expect } from 'vitest';
-// Mock simulators would go here in a real test
+import './temperatureSimulator.test';
+import './pressureSimulator.test';
+import './flowRateSimulator.test';
 
-describe('Simulators', () => {
-  it('passes basic test', () => {
+// Main test suite wrapper
+describe('Refinery Simulators', () => {
+  it('passes sanity check', () => {
     expect(true).toBe(true);
   });
 });
+

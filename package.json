@@ -26,9 +26,17 @@
     "pnpm": ">=8.0.0"
   },
   "lint-staged": {
-    "**/src/**/*.{ts,tsx,svelte}": [
-      "eslint --fix",
-      "pnpm test -- --related"
+    "packages/client/src/**/*.{ts,svelte}": [
+      "cd packages/client && eslint",
+      "cd packages/client && pnpm test"
+    ],
+    "packages/server/src/**/*.ts": [
+      "cd packages/server && eslint",
+      "cd packages/server && pnpm test"
+    ],
+    "packages/shared/src/**/*.ts": [
+      "cd packages/shared && eslint",
+      "cd packages/shared && pnpm test"
     ]
   },
   "config": {

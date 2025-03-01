@@ -70,6 +70,7 @@ The pre-commit hooks will lint your code and run relevant tests before letting y
 - Use Svelte 5 runes properly - don't stick with the old Svelte 4 patterns
 - Make sure your components receive proper TypeScript props
 - Add at least one meaningful test for each panel component
+- Test business logic separately from UI rendering when possible
 - Use responsive design so it works on tablets (but desktop is priority)
 
 Don't waste time on login screens or fancy animations. Focus on making the core monitoring features solid and maintainable.
