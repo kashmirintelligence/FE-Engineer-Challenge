@@ -24,7 +24,7 @@ Create a dashboard with three monitoring panels:
 ## What We're Looking For 👀
 
 - Clean TypeScript code
-- Effective use of Svelte 5 runes ($state(), $derived, $effect)
+- Proper state management in Svelte 4
 - Component organisation
 - Responsive design
 - Basic tests for critical functions
@@ -32,7 +32,7 @@ Create a dashboard with three monitoring panels:
 ## Project Structure
 
 This is a monorepo with three packages:
-- `client`: Svelte 5 frontend with D3 for visualisations
+- `client`: Svelte 4 frontend with D3 for visualisations
 - `server`: Node.js backend with Socket.IO simulating real-time refinery data
 - `shared`: Common types and constants for type-safe communication
 
@@ -43,10 +43,16 @@ The backend already simulates temperature, pressure and flow rate with random fl
 1. Clone this repo
 2. Install pnpm if you don't have it: `npm install -g pnpm`
 3. `pnpm install`
-4. `pnpm dev` (runs both frontend and backend)
-5. `pnpm test` (runs all tests)
+4. `pnpm build` (important: builds all packages first)
+5. `pnpm dev` (runs both frontend and backend)
 
-The server runs on http://localhost:3001 and the client on http://localhost:5173.
+**The client runs at http://localhost:3000 and the server at http://localhost:3001.**
+
+If you have issues with the app not loading, try:
+- Run `pnpm build` again to make sure everything is compiled correctly
+- Try running server and client separately: `pnpm dev:server` and `pnpm dev:client`
+
+6. `pnpm test` (runs all tests)
 
 ## Git Workflow
 
@@ -67,10 +73,7 @@ The pre-commit hooks will lint your code and run relevant tests before letting y
 
 ## Technical Requirements
 
-- Use Svelte 5 runes properly - don't stick with the old Svelte 4 patterns
-  - Use `const state = $state({...})` for reactive state
-  - Use `$derived` for derived values
-  - Use `$effect` for side effects
+- Use proper Svelte 4 patterns and reactivity
 - Make sure your components receive proper TypeScript props
 - Test business logic separately from UI rendering when possible
 - Use responsive design so it works on tablets (but desktop is priority)

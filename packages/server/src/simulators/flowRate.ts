@@ -1,4 +1,4 @@
-import { FlowRateData, FLOW_FLUCTUATION } from 'shared';
+import { FlowRateData, FLOW_FLUCTUATION } from '../lib';
 
 export class FlowRateSimulator {
   private rate: number;

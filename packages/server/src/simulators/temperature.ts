@@ -1,4 +1,4 @@
-import { TemperatureData, ThresholdStatus, TEMPERATURE_FLUCTUATION } from 'shared';
+import { TemperatureData, ThresholdStatus, TEMPERATURE_FLUCTUATION } from '../lib';
 
 export class TemperatureSimulator {
   private temperature: number;

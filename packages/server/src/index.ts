@@ -13,7 +13,7 @@ import {
   PRESSURE_WARNING_THRESHOLD,
   PRESSURE_CRITICAL_THRESHOLD,
   UPDATE_INTERVAL
-} from 'shared';
+} from './lib';
 
 import { TemperatureSimulator } from './simulators/temperature';
 import { PressureSimulator } from './simulators/pressure';

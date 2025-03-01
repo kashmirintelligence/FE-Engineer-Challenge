@@ -4,6 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "pnpm run -r --parallel dev",
+    "dev:client": "cd packages/client && pnpm dev",
+    "dev:server": "cd packages/server && pnpm dev",
     "build": "pnpm run -r build",
     "test": "pnpm run -r test",
     "lint": "pnpm run -r lint",

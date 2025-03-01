@@ -1,4 +1,4 @@
-import { PressureData, ThresholdStatus, PRESSURE_FLUCTUATION } from 'shared';
+import { PressureData, ThresholdStatus, PRESSURE_FLUCTUATION } from '../lib';
 
 export class PressureSimulator {
   private pressure: number;
