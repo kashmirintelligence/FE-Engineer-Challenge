@@ -1,0 +1,103 @@
+:root {
+  --bg-dark: #121212;
+  --bg-panel: #1e1e1e;
+  --bg-card: #252525;
+  --text: #ffffff;
+  --text-secondary: #888888;
+  --normal: #4ade80;
+  --warning: #facc15;
+  --critical: #ef4444;
+}
+
+body {
+  font-family: system-ui, -apple-system, sans-serif;
+  background-color: var(--bg-dark);
+  color: var(--text);
+  margin: 0;
+  padding: 0;
+}
+
+.bg-panel {
+  background-color: var(--bg-panel);
+}
+
+.bg-card {
+  background-color: var(--bg-card);
+}
+
+.flex {
+  display: flex;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.p-5 {
+  padding: 1.25rem;
+}
+
+.mb-8 {
+  margin-bottom: 2rem;
+}
+
+.mr-2 {
+  margin-right: 0.5rem;
+}
+
+.rounded-lg {
+  border-radius: 0.5rem;
+}
+
+.rounded-full {
+  border-radius: 9999px;
+}
+
+.text-2xl {
+  font-size: 1.5rem;
+}
+
+.font-bold {
+  font-weight: 700;
+}
+
+.w-3 {
+  width: 0.75rem;
+}
+
+.h-3 {
+  height: 0.75rem;
+}
+
+.min-h-screen {
+  min-height: 100vh;
+}
+
+.p-6 {
+  padding: 1.5rem;
+}
+
+.max-w-7xl {
+  max-width: 80rem;
+}
+
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.shadow-lg {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.bg-normal {
+  background-color: var(--normal);
+}
+
+.bg-critical {
+  background-color: var(--critical);
+}
