@@ -1,6 +1,6 @@
 # Refinery Monitoring Challenge 🏭
 
-A quick Svelte 5 challenge to show off your skills. Build something small but impressive in 2-3 hours that we can chat about later. Quality over quantity - use TypeScript, testing and runes to demonstrate how you actually think about code.
+A quick Svelte 4 challenge to show off your skills. Build something small but impressive in 2-3 hours that we can chat about later. Quality over quantity - use TypeScript, testing and runes to demonstrate how you actually think about code.
 
 ## The Brief 📊
 
