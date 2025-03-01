@@ -24,7 +24,7 @@ Create a dashboard with three monitoring panels:
 ## What We're Looking For 👀
 
 - Clean TypeScript code
-- Effective use of Svelte 5 runes ($state, $derived, $effect)
+- Effective use of Svelte 5 runes ($state(), $derived, $effect)
 - Component organisation
 - Responsive design
 - Basic tests for critical functions
@@ -68,8 +68,10 @@ The pre-commit hooks will lint your code and run relevant tests before letting y
 ## Technical Requirements
 
 - Use Svelte 5 runes properly - don't stick with the old Svelte 4 patterns
+  - Use `const state = $state({...})` for reactive state
+  - Use `$derived` for derived values
+  - Use `$effect` for side effects
 - Make sure your components receive proper TypeScript props
-- Add at least one meaningful test for each panel component
 - Test business logic separately from UI rendering when possible
 - Use responsive design so it works on tablets (but desktop is priority)
 
