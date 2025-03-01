@@ -24,7 +24,7 @@ Create a dashboard with three monitoring panels:
 ## What We're Looking For 👀
 
 - Clean TypeScript code
-- Effective use of Svelte 5 runes
+- Effective use of Svelte 5 runes ($state, $derived, $effect)
 - Component organisation
 - Responsive design
 - Basic tests for critical functions
@@ -32,9 +32,11 @@ Create a dashboard with three monitoring panels:
 ## Project Structure
 
 This is a monorepo with three packages:
-- `client`: Svelte 5 frontend
-- `server`: Node.js backend with Socket.IO
-- `shared`: Common types and utilities
+- `client`: Svelte 5 frontend with D3 for visualisations
+- `server`: Node.js backend with Socket.IO simulating real-time refinery data
+- `shared`: Common types and constants for type-safe communication
+
+The backend already simulates temperature, pressure and flow rate with random fluctuations and responds to control commands. Your job is to create a proper front-end that visualises the data and lets operators control the systems.
 
 ## Getting Started 🚀
 
@@ -44,6 +46,15 @@ This is a monorepo with three packages:
 4. `pnpm dev` (runs both frontend and backend)
 5. `pnpm test` (runs all tests)
 
-You need to implement both the frontend with Svelte 5 (connect to the socket backend) and extend the backend as needed for your solution.
+The server runs on http://localhost:3001 and the client on http://localhost:5173.
+
+## Technical Requirements
+
+- Use Svelte 5 runes properly - don't stick with the old Svelte 4 patterns
+- Make sure your components receive proper TypeScript props
+- Add at least one meaningful test for each panel component
+- Use responsive design so it works on tablets (but desktop is priority)
+
+Don't waste time on login screens or fancy animations. Focus on making the core monitoring features solid and maintainable.
 
 Quality over quantity. Your creativity, your choices.
