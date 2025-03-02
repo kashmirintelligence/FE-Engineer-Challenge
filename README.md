@@ -1,6 +1,6 @@
 # Refinery Monitoring Challenge 🏭
 
-A quick Svelte 4 challenge to show off your skills. Build something small but impressive in 2-3 hours that we can chat about later. Quality over quantity - use TypeScript, testing and runes to demonstrate how you actually think about code.
+This Svelte 4 challenge tests your ability to build a small but impressive dashboard in 2-3 hours. Create real-time visualisations from socket data while showcasing your TypeScript, testing and component development skills.
 
 ## The Brief 📊
 
@@ -8,76 +8,91 @@ Create a dashboard with three monitoring panels:
 
 1. **Temperature System** 🌡️
    - Line chart tracking real-time temperature
-   - Adjustable warning/critical thresholds
-   - Heat control simulation
+   - Adjustable warning/critical thresholds (drag to change values)
+   - Cooling toggle button
+   - Status indicators showing normal/warning/critical states
 
 2. **Pressure Vessel** 📈
    - Gauge visualisation (0-100%)
    - Emergency release button
-   - Warning indicators
+   - Warning indicators that reflect vessel status
 
 3. **Flow Rate Monitor** 🌊
-   - Pipe visualisation with animation
-   - Valve control slider
-   - Efficiency calculation
+   - Animated pipe flow visualisation 
+   - Valve control slider (0-100%)
+   - Efficiency calculation display
 
 ## What We're Looking For 👀
 
-- Clean TypeScript code
-- Proper state management in Svelte 4
-- Component organisation
-- Responsive design
+- Clean TypeScript with proper interfaces and type safety
+- Svelte 4 patterns (using runes/signals where appropriate)
+- Logical component organisation 
+- Responsive design (desktop-first, tablet-compatible)
 - Basic tests for critical functions
 
 ## Project Structure
 
 This is a monorepo with three packages:
-- `client`: Svelte 4 frontend (use any visualization library you prefer)
-- `server`: Node.js backend with Socket.IO simulating real-time refinery data
-- `shared`: Common types and constants for type-safe communication
+- `client`: Svelte 4 frontend (currently empty panels waiting for your implementation)
+- `server`: Socket.IO backend simulating real-time refinery data
+- `shared`: Common types and constants used by both client and server
 
-The backend already simulates temperature, pressure and flow rate with random fluctuations and responds to control commands. Your job is to create a proper front-end that visualises the data and lets operators control the systems.
+The data flow works like this:
+1. Server runs simulators that generate realistic plant data
+2. Socket.IO sends updates to connected clients
+3. Your visualisations display this data and let users control the simulations
+
+## Data & Control Interface
+
+The server emits these events:
+- `temperature:update` - Current temperature, thresholds and status
+- `pressure:update` - Current pressure value and status
+- `flow:update` - Current flow rate, valve position and efficiency
+
+Your client can send these commands:
+- `temperature:control` - Adjust cooling or thresholds
+- `pressure:release` - Trigger emergency pressure release
+- `flow:valve-adjust` - Change valve position (0-100%)
 
 ## Getting Started 🚀
 
 1. Clone this repo
 2. Install pnpm if you don't have it: `npm install -g pnpm`
-3. `pnpm install`
-4. `pnpm build` (important: builds all packages first)
-5. `pnpm dev` (runs both frontend and backend)
+3. Run `pnpm install`
+4. Run `pnpm build` (builds all packages)
+5. Run `pnpm dev` (starts both client and server)
 
-**The client runs at http://localhost:3000 and the server at http://localhost:3001.**
+The app runs at http://localhost:3000 with the server at http://localhost:3001.
 
-If you have issues with the app not loading, try:
-- Run `pnpm build` again to make sure everything is compiled correctly
-- Try running server and client separately: `pnpm dev:server` and `pnpm dev:client`
+## Debugging
 
-6. `pnpm test` (runs all tests)
+- Use the debug panel (bottom-right corner) to see all socket events
+- Check browser console for any errors
+- For Socket.IO issues, try running server and client separately:
+  - `pnpm dev:server` 
+  - `pnpm dev:client`
 
-## Git Workflow
+## Testing Your Code
 
-We use [conventional commits](https://www.conventionalcommits.org/) to maintain a clean and meaningful git history.
+Run tests with `pnpm test`. We've set up test infrastructure, just add your test files.
 
-Use `pnpm commit` instead of `git commit` to get a helpful interactive prompt.
+All tests must pass for your PR to be accepted.
 
-Your commit messages must follow the pattern:
-- **feat**: A new feature
-- **fix**: A bug fix
-- **docs**: Documentation changes
-- **style**: Code style changes (formatting, etc)
-- **refactor**: Code changes that neither fix bugs nor add features
-- **test**: Adding or improving tests
-- **chore**: Changes to the build process or tools
+## Tips for Success
 
-The pre-commit hooks will lint your code and run relevant tests before letting you commit. If things fail, fix them before committing.
+- Start with one panel (temperature) and get it fully working before moving to others
+- Use SCSS for styling (we've set up Svelte preprocessing for you)
+- TypeScript interfaces are already defined in the shared package
+- You can use any visualisation library, or roll your own with SVG
+- Focus on functionality first, then polish the UI
+- Leave time for writing tests
 
-## Technical Requirements
+## Submission Requirements
 
-- Use proper Svelte 4 patterns and reactivity
-- Make sure your components receive proper TypeScript props
-- Test business logic separately from UI rendering when possible
-- Use responsive design so it works on tablets (but desktop is priority)
+Create a PR containing your changes. We'll review:
+1. How you structured components
+2. Type safety and TypeScript usage
+3. Test coverage for critical functionality
+4. UI/UX decisions and implementation quality
 
-Don't waste time on login screens or fancy animations. Focus on making the core monitoring features solid and maintainable.
-
-Quality over quantity. Your creativity, your choices.
+Don't spend time on login screens or features not mentioned in the brief. Focus on solid, maintainable visualisations of the simulated data.
