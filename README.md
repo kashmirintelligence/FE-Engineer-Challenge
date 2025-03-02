@@ -32,7 +32,7 @@ Create a dashboard with three monitoring panels:
 ## Project Structure
 
 This is a monorepo with three packages:
-- `client`: Svelte 4 frontend with D3 for visualisations
+- `client`: Svelte 4 frontend (use any visualization library you prefer)
 - `server`: Node.js backend with Socket.IO simulating real-time refinery data
 - `shared`: Common types and constants for type-safe communication
 

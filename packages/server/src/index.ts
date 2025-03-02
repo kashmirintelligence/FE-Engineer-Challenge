@@ -15,6 +15,12 @@ import {
   UPDATE_INTERVAL
 } from './lib';
 
+// Add simulation control events
+enum SimulationEvents {
+  TOGGLE = 'simulation:toggle',
+  RESET = 'simulation:reset'
+}
+
 import { TemperatureSimulator } from './simulators/temperature';
 import { PressureSimulator } from './simulators/pressure';
 import { FlowRateSimulator } from './simulators/flowRate';
@@ -38,19 +44,19 @@ app.get('/api/status', (req, res) => {
 });
 
 // Create simulators
-const temperatureSimulator = new TemperatureSimulator(
+let temperatureSimulator = new TemperatureSimulator(
   DEFAULT_TEMPERATURE,
   DEFAULT_WARNING_TEMPERATURE,
   DEFAULT_CRITICAL_TEMPERATURE
 );
 
-const pressureSimulator = new PressureSimulator(
+let pressureSimulator = new PressureSimulator(
   DEFAULT_PRESSURE,
   PRESSURE_WARNING_THRESHOLD,
   PRESSURE_CRITICAL_THRESHOLD
 );
 
-const flowRateSimulator = new FlowRateSimulator(
+let flowRateSimulator = new FlowRateSimulator(
   DEFAULT_FLOW_RATE,
   DEFAULT_VALVE_POSITION
 );
@@ -93,17 +99,60 @@ io.on('connection', (socket) => {
     socket.emit(SocketEvents.FLOW_UPDATE, flowRateSimulator.getData());
   });
   
+  // Simulation controls
+  socket.on(SimulationEvents.TOGGLE, (paused: boolean) => {
+    simulationPaused = paused;
+    console.log(`Simulation ${simulationPaused ? 'paused' : 'resumed'}`);
+  });
+  
+  socket.on(SimulationEvents.RESET, () => {
+    console.log('Simulation reset');
+    // Reset all simulators to initial values
+    temperatureSimulator = new TemperatureSimulator(
+      DEFAULT_TEMPERATURE,
+      DEFAULT_WARNING_TEMPERATURE,
+      DEFAULT_CRITICAL_TEMPERATURE
+    );
+    
+    pressureSimulator = new PressureSimulator(
+      DEFAULT_PRESSURE,
+      PRESSURE_WARNING_THRESHOLD,
+      PRESSURE_CRITICAL_THRESHOLD
+    );
+    
+    flowRateSimulator = new FlowRateSimulator(
+      DEFAULT_FLOW_RATE,
+      DEFAULT_VALVE_POSITION
+    );
+    
+    // Send updated values to all clients
+    io.emit(SocketEvents.TEMPERATURE_UPDATE, temperatureSimulator.getData());
+    io.emit(SocketEvents.PRESSURE_UPDATE, pressureSimulator.getData());
+    io.emit(SocketEvents.FLOW_UPDATE, flowRateSimulator.getData());
+  });
+  
   socket.on('disconnect', () => {
     console.log('Client disconnected:', socket.id);
   });
 });
 
+// Simulation control
+let simulationPaused = false;
+let simulationInterval: NodeJS.Timeout | null = null;
+
 // Start simulation intervals
 const startSimulations = () => {
-  setInterval(() => {
-    temperatureSimulator.update();
-    pressureSimulator.update();
-    flowRateSimulator.update();
+  // Clear any existing interval
+  if (simulationInterval) {
+    clearInterval(simulationInterval);
+  }
+  
+  simulationInterval = setInterval(() => {
+    if (!simulationPaused) {
+      temperatureSimulator.update();
+      pressureSimulator.update();
+      flowRateSimulator.update();
+    }
     
     io.emit(SocketEvents.TEMPERATURE_UPDATE, temperatureSimulator.getData());
     io.emit(SocketEvents.PRESSURE_UPDATE, pressureSimulator.getData());
