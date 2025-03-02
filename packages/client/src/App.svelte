@@ -94,26 +94,26 @@
     
     <!-- Dashboard Grid -->
     <div class="grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-      <!-- Temperature Panel (Placeholder) -->
-      <div class="bg-card p-5 rounded-lg shadow-lg">
+      <!-- Temperature Panel -->
+      <div class="dashboard__panel bg-card p-5 rounded-lg shadow-lg">
         <h2 class="text-xl font-bold mb-4">Temperature System</h2>
-        <div class="bg-panel p-4 rounded h-64 flex items-center justify-center">
+        <div class="dashboard__visualization">
           <p class="text-text-secondary">Temperature visualization goes here</p>
         </div>
       </div>
       
-      <!-- Pressure Panel (Placeholder) -->
-      <div class="bg-card p-5 rounded-lg shadow-lg">
+      <!-- Pressure Panel -->
+      <div class="dashboard__panel bg-card p-5 rounded-lg shadow-lg">
         <h2 class="text-xl font-bold mb-4">Pressure Vessel</h2>
-        <div class="bg-panel p-4 rounded h-64 flex items-center justify-center">
+        <div class="dashboard__visualization">
           <p class="text-text-secondary">Pressure visualization goes here</p>
         </div>
       </div>
       
-      <!-- Flow Rate Panel (Placeholder) -->
-      <div class="bg-card p-5 rounded-lg shadow-lg">
+      <!-- Flow Rate Panel -->
+      <div class="dashboard__panel bg-card p-5 rounded-lg shadow-lg">
         <h2 class="text-xl font-bold mb-4">Flow Rate Monitor</h2>
-        <div class="bg-panel p-4 rounded h-64 flex items-center justify-center">
+        <div class="dashboard__visualization">
           <p class="text-text-secondary">Flow rate visualization goes here</p>
         </div>
       </div>

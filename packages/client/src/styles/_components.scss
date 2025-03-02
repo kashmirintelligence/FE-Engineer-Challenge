@@ -1,0 +1,33 @@
+// Backgrounds
+.bg-panel { background-color: $bg-panel; }
+.bg-card { background-color: $bg-card; }
+.bg-normal { background-color: $normal; }
+.bg-critical { background-color: $critical; }
+.bg-white { background-color: #ffffff; }
+
+// Typography
+.text-2xl { font-size: 1.5rem; }
+.text-xl { font-size: 1.25rem; }
+.font-bold { font-weight: 700; }
+.font-mono { font-family: $font-mono; }
+.text-white { color: $text; }
+.text-black { color: #000000; }
+.text-text-secondary { color: $text-secondary; }
+
+// Borders & shapes
+.rounded-lg { border-radius: 0.5rem; }
+.rounded-full { border-radius: 9999px; }
+.rounded { border-radius: 0.25rem; }
+.border { border-width: 1px; }
+.border-gray-200 { border-color: #e5e7eb; }
+.shadow-lg { box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); }
+
+// Button states
+button {
+  transition: all 0.2s ease;
+  
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}

@@ -1,0 +1,46 @@
+// Layout classes
+.flex { display: flex; }
+.justify-between { justify-content: space-between; }
+.items-center { align-items: center; }
+.gap-4 { gap: $spacing-4; }
+.gap-6 { gap: $spacing-6; }
+
+// Grid
+.grid { display: grid; }
+.grid-cols-1 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
+
+@media (min-width: 768px) {
+  .md\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (min-width: 1024px) {
+  .lg\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+// Sizing
+.w-3 { width: 0.75rem; }
+.h-3 { height: 0.75rem; }
+.h-64 { height: 16rem; }
+.min-h-screen { min-height: 100vh; }
+.max-w-7xl { max-width: 80rem; }
+.mx-auto { 
+  margin-left: auto; 
+  margin-right: auto; 
+}
+
+// Spacing
+.p-4 { padding: $spacing-4; }
+.p-5 { padding: $spacing-5; }
+.p-6 { padding: $spacing-6; }
+.px-3 { 
+  padding-left: $spacing-3; 
+  padding-right: $spacing-3; 
+}
+.py-1 { 
+  padding-top: $spacing-1; 
+  padding-bottom: $spacing-1; 
+}
+.mb-4 { margin-bottom: $spacing-4; }
+.mb-8 { margin-bottom: $spacing-8; }
+.mr-2 { margin-right: $spacing-2; }
+.mr-4 { margin-right: $spacing-4; }

@@ -1,0 +1,32 @@
+@import 'variables';
+@import 'layout';
+@import 'components';
+
+// Base styles
+body {
+  font-family: $font-sans;
+  background-color: $bg-dark;
+  color: $text;
+  margin: 0;
+  padding: 0;
+}
+
+// Dashboard container styles
+.dashboard {
+  &__panel {
+    transition: transform 0.2s ease;
+    
+    &:hover {
+      transform: translateY(-2px);
+    }
+  }
+  
+  &__visualization {
+    background-color: $bg-panel;
+    border-radius: 0.25rem;
+    height: 16rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
