@@ -53,7 +53,8 @@ export class TemperatureSimulator {
       timestamp: Date.now(),
       value: parseFloat(this.temperature.toFixed(1)),
       warningThreshold: this.warningThreshold,
-      criticalThreshold: this.criticalThreshold
+      criticalThreshold: this.criticalThreshold,
+      status
     };
   }
   

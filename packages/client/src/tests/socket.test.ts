@@ -1,5 +1,4 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
-import { get } from 'svelte/store';
 
 // Mock the io import before importing the socket module
 vi.mock('socket.io-client', () => ({

@@ -5,7 +5,7 @@
   
   // Using connected state directly instead of tracking separately
   let timer = 0;
-  let intervalId = null;
+  let intervalId: ReturnType<typeof setInterval> | null = null;
   
   function toggleSimulation() {
     if (!$connected) {

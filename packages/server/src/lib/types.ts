@@ -16,6 +16,7 @@ export interface TemperatureData {
   value: number;
   warningThreshold: number;
   criticalThreshold: number;
+  status?: ThresholdStatus;
 }
 
 export interface PressureData {
