@@ -44,7 +44,7 @@ describe('TemperatureSimulator', () => {
       simulator.update();
     }
     
-    let afterNoCooling = simulator.getData().value;
+    const afterNoCooling = simulator.getData().value;
     
     // Should be increasing or staying roughly the same without cooling
     expect(afterNoCooling).toBeGreaterThanOrEqual(beforeCooling);

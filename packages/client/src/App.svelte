@@ -1,6 +1,7 @@
 <script lang="ts">
   import { onMount } from 'svelte';
   import socket, { connected } from './lib/socket';
+  import DebugPanel from './lib/DebugPanel.svelte';
   
   // Using connected state directly instead of tracking separately
   let timer = 0;
@@ -42,7 +43,7 @@
     timer = 0;
   }
   
-  function formatTime(ms) {
+  function formatTime(ms: number): string {
     const seconds = Math.floor(ms / 1000);
     const milliseconds = ms % 1000;
     return `${seconds}.${milliseconds.toString().padStart(3, '0')}`;
@@ -120,3 +121,6 @@
     </div>
   </div>
 </main>
+
+<!-- Debug panel for monitoring socket events -->
+<DebugPanel />
