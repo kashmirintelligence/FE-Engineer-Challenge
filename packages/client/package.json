@@ -8,7 +8,8 @@
     "build": "vite build",
     "preview": "vite preview",
     "check": "svelte-check --tsconfig ./tsconfig.json",
-    "test": "echo 'No tests yet'",
+    "test": "vitest run",
+    "test:watch": "vitest",
     "lint": "eslint ./src --ext .ts,.svelte"
   },
   "dependencies": {
@@ -16,6 +17,7 @@
   },
   "devDependencies": {
     "@sveltejs/vite-plugin-svelte": "^2.4.6",
+    "@testing-library/svelte": "^4.0.5",
     "@tsconfig/svelte": "^5.0.2",
     "svelte": "^4.2.8",
     "svelte-check": "^3.6.2",
@@ -26,6 +28,8 @@
     "eslint-plugin-svelte": "^2.35.1",
     "@typescript-eslint/eslint-plugin": "^6.19.1",
     "@typescript-eslint/parser": "^6.19.1",
-    "svelte-eslint-parser": "^0.33.1"
+    "svelte-eslint-parser": "^0.33.1",
+    "vitest": "^1.1.0",
+    "jsdom": "^23.0.1"
   }
 }
