@@ -1,5 +1,5 @@
-// Define generic socket data type
-export type SocketData = any;
+// Re-export from shared package
+export type { TemperatureData, PressureData, FlowRateData, ThresholdStatus } from 'shared';
 
-// More specific types could be defined here from the shared package
-// import type { TemperatureData, PressureData, FlowRateData } from '../../../shared/src/types';
+// For backward compatibility
+export type SocketData = any;
