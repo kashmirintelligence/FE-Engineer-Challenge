@@ -96,3 +96,11 @@ Create a PR containing your changes. We'll review:
 4. UI/UX decisions and implementation quality
 
 Don't spend time on login screens or features not mentioned in the brief. Focus on solid, maintainable visualisations of the simulated data.
+
+## Using AI Tools
+
+Using AI assistants like Claude or ChatGPT to help with this challenge is absolutely fine. We're interested in results, not whether you memorised every Svelte lifecycle method. However, be prepared to walk through your code, explain your design choices, and justify technical decisions during the review. If you can't explain how your solution works, it's not much use to us.
+
+## Pre-commit Hooks
+
+We've set up Husky pre-commit hooks to run ESLint and tests before each commit. This might feel like a faff, but it ensures your code meets our standards before it's committed. If you're getting pre-commit errors when trying to commit changes, run `pnpm lint` and `pnpm test` manually to see what's failing.
