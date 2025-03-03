@@ -104,3 +104,5 @@ Using AI assistants like Claude or ChatGPT to help with this challenge is absolu
 ## Pre-commit Hooks
 
 We've set up Husky pre-commit hooks to run ESLint and tests before each commit. This might feel like a faff, but it ensures your code meets our standards before it's committed. If you're getting pre-commit errors when trying to commit changes, run `pnpm lint` and `pnpm test` manually to see what's failing.
+
+We're using [Conventional Commits](https://www.conventionalcommits.org/) for this project. This means your commit messages should follow a specific format like `feat: add temperature gauge` or `fix: resolve pressure panel display bug`. The pre-commit hook will enforce this format.
